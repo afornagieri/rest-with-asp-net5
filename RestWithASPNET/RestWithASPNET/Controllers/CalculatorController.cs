@@ -11,6 +11,13 @@ namespace RestWithASPNET.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
+        private readonly ILogger<CalculatorController> _logger;
+
+        CalculatorController(ILogger<CalculatorController> logger)
+        {
+            logger = _logger;
+        }
+
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
         public IActionResult Sum(string firstNumber, string secondNumber)
         {
