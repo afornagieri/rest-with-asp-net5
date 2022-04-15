@@ -8,14 +8,14 @@ using Microsoft.Extensions.Logging;
 namespace RestWithASPNET.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CalculatorController : ControllerBase
     {
         private readonly ILogger<CalculatorController> _logger;
 
-        CalculatorController(ILogger<CalculatorController> logger)
+        public CalculatorController(ILogger<CalculatorController> logger)
         {
-            logger = _logger;
+            _logger = logger;
         }
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
